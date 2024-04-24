@@ -19,7 +19,7 @@ APPNAME ?= provider
 # jar包版本
 VERSION ?= v1.0.0
 # SonarQube
-SONAR_TOKEN ?= sqp_a09586e56f41a3ea06841e07455a0bfc1b1c3448
+SONAR_TOKEN ?= sqp_5dea11320be00b624828d5bab974092557debadf
 SONAR_KEY ?= cloud
 SONAR_URL ?= http://101.0.0.26:9000
 # docker容器映射端口
