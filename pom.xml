@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>site.mingsha</groupId>
+    <artifactId>mingsha</artifactId>
+    <version>${revision}</version>
+
+    <name>mingsha</name>
+    <description>mingsha微服务 forked from https://gitee.com/y_project/RuoYi-Cloud.git</description>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- version -->
+        <revision>v1.0.0</revision>
+        <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
+        <!--  -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
+        <spring-cloud.version>2021.0.8</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <spring-framework.version>5.3.33</spring-framework.version>
+        <spring-boot-admin.version>2.7.15</spring-boot-admin.version>
+        <swagger.fox.version>3.0.0</swagger.fox.version>
+        <swagger.core.version>1.6.2</swagger.core.version>
+        <kaptcha.version>2.3.3</kaptcha.version>
+        <pagehelper.boot.version>2.0.0</pagehelper.boot.version>
+        <druid.version>1.2.20</druid.version>
+        <dynamic-ds.version>4.2.0</dynamic-ds.version>
+        <commons.io.version>2.13.0</commons.io.version>
+        <velocity.version>2.3</velocity.version>
+        <fastjson.version>2.0.43</fastjson.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <poi.version>4.1.2</poi.version>
+        <transmittable-thread-local.version>2.14.4</transmittable-thread-local.version>
+        <rocketmq.version>2.3.0</rocketmq.version>
+    </properties>
+
+    <modules>
+        <module>mingsha-facade</module>
+        <module>mingsha-common</module>
+        <module>mingsha-service</module>
+    </modules>
+
+    <!-- 依赖声明 -->
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- 核心模块 -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-common-core</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 接口模块 -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-common-swagger</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 安全模块 -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-common-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 权限范围 -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-common-datascope</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 多数据源 -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-common-datasource</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 日志记录 -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-common-log</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 缓存服务 -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-common-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- SpringBoot Actuator -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-common-actuator</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- SpringBoot Exporter -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-common-prometheus</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- RocketMQ -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-common-rocketmq</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 文件门面 -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-facade-file</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 系统门面 -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-facade-system</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 服务提供方门面 -->
+            <dependency>
+                <groupId>site.mingsha</groupId>
+                <artifactId>mingsha-facade-provider</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- SpringFramework的依赖配置-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring-framework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringCloud 微服务 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringCloud Alibaba 微服务 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringBoot 依赖配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Swagger 依赖配置 -->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.core.version}</version>
+            </dependency>
+
+            <!-- 验证码 -->
+            <dependency>
+                <groupId>pro.fessional</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+
+            <!-- pagehelper 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.boot.version}</version>
+            </dependency>
+
+            <!-- io常用工具类 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+
+            <!-- excel工具 -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <!-- 代码生成使用模板 -->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+
+            <!-- JSON 解析器和生成器 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- JWT -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+            <!-- 线程传递值 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+            <!-- rocketmq -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- bootstrap 启动器 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- flatten -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                                <goal>build-info</goal><!--generate build-info.properties-->
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

@@ -1,0 +1,21 @@
+# 1、基础镜像
+FROM nginx:1.25-alpine
+
+# 2、镜像作者和电子邮箱
+MAINTAINER chenlong "chenlong220192@gmail.com"
+
+# 3、在构建镜像时，指定工作目录。之后的命令都是基于此工作目录，不存在则自动创建。
+WORKDIR /app/
+
+# 4、复制制品内容到目标目录
+COPY ./deploy/config/ /etc/nginx/conf.d
+
+# 5、复制制品
+COPY ./dist /app
+
+# 6、容器启动后执行命令
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
+
+# 7、健康检查
+# HEALTHCHECK --interval=30s --timeout=3s --retries=3 、
+#  CMD curl --fail --silent http://localhost:8000 || exit 1

@@ -1,0 +1,18 @@
+# 1、基础镜像
+FROM site.mingsha/mingsha-runtime:openjdk-11
+
+# 2、镜像作者和电子邮箱
+MAINTAINER chenlong "chenlong220192@gmail.com"
+
+# 3、在构建镜像时，指定工作目录。之后的命令都是基于此工作目录，不存在则自动创建。
+WORKDIR /app/
+
+# 4、复制制品内容到目标目录
+COPY ./mingsha-service/mingsha-service-file/target/*.jar ./boot.jar
+
+# 5、容器启动后执行命令
+ENTRYPOINT ["java", "-server", "-Xms256m", "-Xmx1024m", "-XX:MetaspaceSize=128m", "-XX:MaxMetaspaceSize=256m", "-javaagent:/skywalking-agent/skywalking-agent.jar", "-Dskywalking.agent.namespace=cloud-mingsha", "-Dskywalking.agent.service_name=mingsha-service-file", "-Dskywalking.collector.backend_service=101.0.0.18:11800", "-jar", "/app/boot.jar"]
+
+# 6、健康检查
+# HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
+#  CMD curl --fail --silent http://localhost:8004/actuator/health | grep UP || exit 1

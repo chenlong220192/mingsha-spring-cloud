@@ -1,0 +1,2 @@
+site.mingsha.common.log.service.AsyncLogService
+site.mingsha.common.log.aspect.LogAspect

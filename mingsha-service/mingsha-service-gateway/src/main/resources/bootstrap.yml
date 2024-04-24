@@ -1,0 +1,58 @@
+# Tomcat
+server:
+  port: 8001
+
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: mingsha-service-gateway
+  profiles:
+    # 环境配置
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 101.0.0.14:8848
+      config:
+        # 配置中心地址
+        server-addr: 101.0.0.14:8848
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+    sentinel:
+      # 取消控制台懒加载
+      eager: true
+      transport:
+        # 控制台地址
+        dashboard: 101.0.0.15:8858
+      # nacos配置持久化
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 101.0.0.14:8848
+            # 限流配置
+            dataId: sentinel-flow-mingsha-service-gateway
+            groupId: DEFAULT_GROUP
+            data-type: json
+            # 规则类型：gw-flow、degrade、param-flow、system、authority
+            rule-type: gw-flow
+        ds2:
+          nacos:
+            server-addr: 101.0.0.14:8848
+            # 熔断配置
+            dataId: sentinel-degrade-mingsha-service-gateway
+            groupId: DEFAULT_GROUP
+            data-type: json
+            # 规则类型：gw-flow、degrade、param-flow、system、authority
+            rule-type: degrade
+
+# Sentinel 控制台鉴权配置
+sentinel:
+  dashboard:
+    auth:
+      username: sentinel
+      password: sentinel

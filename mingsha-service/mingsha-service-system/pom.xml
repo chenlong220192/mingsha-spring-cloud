@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>site.mingsha</groupId>
+        <artifactId>mingsha-service</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>mingsha-service-system</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>mingsha-service-system系统模块</description>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+
+        <!-- mingsha Common Actuator -->
+        <dependency>
+            <groupId>site.mingsha</groupId>
+            <artifactId>mingsha-common-actuator</artifactId>
+        </dependency>
+
+        <!-- mingsha Common Prometheus -->
+        <dependency>
+            <groupId>site.mingsha</groupId>
+            <artifactId>mingsha-common-prometheus</artifactId>
+        </dependency>
+
+        <!-- mingsha facade file -->
+        <dependency>
+            <groupId>site.mingsha</groupId>
+            <artifactId>mingsha-facade-file</artifactId>
+        </dependency>
+
+        <!-- mingsha facade system -->
+        <dependency>
+            <groupId>site.mingsha</groupId>
+            <artifactId>mingsha-facade-system</artifactId>
+        </dependency>
+
+        <!-- mingsha Common DataSource -->
+        <dependency>
+            <groupId>site.mingsha</groupId>
+            <artifactId>mingsha-common-datasource</artifactId>
+        </dependency>
+
+        <!-- mingsha Common DataScope -->
+        <dependency>
+            <groupId>site.mingsha</groupId>
+            <artifactId>mingsha-common-datascope</artifactId>
+        </dependency>
+
+        <!-- mingsha Common Log -->
+        <dependency>
+            <groupId>site.mingsha</groupId>
+            <artifactId>mingsha-common-log</artifactId>
+        </dependency>
+
+        <!-- mingsha Common Swagger -->
+        <dependency>
+            <groupId>site.mingsha</groupId>
+            <artifactId>mingsha-common-swagger</artifactId>
+        </dependency>
+
+        <!-- SpringCloud Alibaba Nacos -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- SpringCloud Alibaba Nacos Config -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!-- SpringCloud Alibaba Sentinel -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+        <!-- Swagger UI -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.fox.version}</version>
+        </dependency>
+
+        <!-- Mysql Connector -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                            <goal>build-info</goal><!--generate build-info.properties-->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

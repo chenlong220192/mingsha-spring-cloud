@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>site.mingsha</groupId>
+        <artifactId>mingsha-service</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>mingsha-service-file</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>mingsha-service-file文件服务</description>
+
+    <dependencies>
+
+      <!-- mingsha Common Actuator -->
+      <dependency>
+          <groupId>site.mingsha</groupId>
+          <artifactId>mingsha-common-actuator</artifactId>
+      </dependency>
+
+      <!-- mingsha Common Prometheus -->
+      <dependency>
+          <groupId>site.mingsha</groupId>
+          <artifactId>mingsha-common-prometheus</artifactId>
+      </dependency>
+
+    	<!-- SpringCloud Alibaba Nacos -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- SpringCloud Alibaba Nacos Config -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!-- SpringCloud Alibaba Sentinel -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+        <!-- mingsha facade file -->
+        <dependency>
+            <groupId>site.mingsha</groupId>
+            <artifactId>mingsha-facade-file</artifactId>
+        </dependency>
+
+        <!-- mingsha Common Swagger -->
+        <dependency>
+            <groupId>site.mingsha</groupId>
+            <artifactId>mingsha-common-swagger</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                            <goal>build-info</goal><!--generate build-info.properties-->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

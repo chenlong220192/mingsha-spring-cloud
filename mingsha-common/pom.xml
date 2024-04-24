@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>site.mingsha</groupId>
+        <artifactId>mingsha</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>mingsha-common</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>mingsha-common通用模块</description>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>mingsha-common-log</module>
+        <module>mingsha-common-core</module>
+        <module>mingsha-common-redis</module>
+        <module>mingsha-common-swagger</module>
+        <module>mingsha-common-security</module>
+        <module>mingsha-common-datascope</module>
+        <module>mingsha-common-datasource</module>
+        <module>mingsha-common-actuator</module>
+        <module>mingsha-common-prometheus</module>
+        <module>mingsha-common-rocketmq</module>
+    </modules>
+
+</project>

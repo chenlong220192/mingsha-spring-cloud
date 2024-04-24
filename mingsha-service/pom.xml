@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>site.mingsha</groupId>
+        <artifactId>mingsha</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>mingsha-service</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>mingsha-service-业务模块</description>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>mingsha-service-gateway</module>
+        <module>mingsha-service-auth</module>
+        <module>mingsha-service-system</module>
+        <module>mingsha-service-file</module>
+        <module>mingsha-service-generator</module>
+        <module>mingsha-service-message</module>
+        <module>mingsha-service-provider</module>
+        <module>mingsha-service-consumer</module>
+        <module>mingsha-service-monitor</module>
+    </modules>
+
+</project>
